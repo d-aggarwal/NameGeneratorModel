@@ -70,7 +70,8 @@ def generate_name():
 
 if __name__ == '__main__':
     api_key = os.getenv('GEMINI_API_KEY')
+    port = int(os.environ.get('PORT', 5002))
     if not api_key:
         raise ValueError("GEMINI_API_KEY not found in .env file")
     generator = BusinessNameGenerator(api_key)
-    app.run(host='0.0.0.0',debug=True, port = 5002)
+    app.run(host='0.0.0.0',debug=True, port = port)
